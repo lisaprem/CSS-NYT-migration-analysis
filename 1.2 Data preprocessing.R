@@ -113,6 +113,7 @@ context_specific_stops <- unique(c(
 context_specific_stops<- data.frame(word = context_specific_stops, stringsAsFactors = FALSE)
   
 tidy_nyt <- tidy_nyt %>%
+    mutate(word = lemmatize_words(word)) %>% 
     anti_join(stop_english, by = "word") %>%       
     anti_join(context_specific_stops, by = "word") %>% 
     filter(!str_detect(word, "^[0-9]+$"))        
