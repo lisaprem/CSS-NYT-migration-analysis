@@ -14,12 +14,12 @@ library(lubridate)
 #usethis::edit_r_environ()
 api_key <- Sys.getenv("NYT_API_KEY")
 
-# The NYT API returned incomplete results when querying 2005–2025 at once due to pagination/result limits,
-# so the data was retrieved by splitting the requests by year and month.
+# The NYT API returned incomplete results when querying 2005–2025 at once due to excessive data request,
+# so the data was retrieved by splitting the requests by year and month, and repeating the code year by year.
 
 ########Extracting year by year#########
  
-year <- 2025 #year to change manually from 2005 to 2025
+year <- 2025 #year to change from 2005 to 2025
 
 ###
 month <- 1
